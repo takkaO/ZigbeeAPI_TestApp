@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title> ZigbeeAPI test app </title>
+
+		<!-- ユーザCSSの読み込み -->
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<script src="./js/bootstrap.min.js"></script>
+				<!-- コンテンツ・セキュリティ・ポリシーを設定 
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+			img-src 'self' data: image/svg+xml;">
+		-->
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="base-panel">
+				<div class="com-select-panel input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">COMポート</span>
+					<select v-on:click="updateSelectedIndex" v-bind:disabled="isOpenComPort" class="form-select">
+						<option v-for="(comport, i) in comports">
+							{{ comport.path }} : {{comport.name}}
+						</option>
+					</select>
+					<button v-on:click="openComPort" v-show="isOpenComPort===false" class="btn btn-outline-secondary" type="button" id="button-addon2">Open</button>
+					<button v-on:click="closeComPort" v-show="isOpenComPort" class="btn btn-outline-secondary" type="button" id="button-addon2">Close</button>
+				</div>
+				<div class="main-panel d-flex flex-row">
+					<div class="input-panel">
+						<span>送信データ</span>
+						<textarea v-on:keydown="onTabKey($event)" v-model="tx_data"></textarea>
+					</div>
+					<div class="control-panel">
+						<span>送信ログ</span>
+						<textarea id="txlogarea" readonly>{{tx_log_data}}</textarea>
+						<span>受信ログ</span>
+						<textarea id="rxlogarea" readonly>{{rx_log_data}}</textarea>
+						<button v-on:click="requestTransmit" v-bind:disabled="!canTransmit" type="button" class="btn btn-primary">Transmit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script defer src="./js/vue.js"></script>
+		<script defer src="index.js"></script>
+	</body>
+
+	</html>

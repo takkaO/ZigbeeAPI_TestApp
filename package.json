@@ -1,0 +1,24 @@
+{
+  "name": "template_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/electron.cmd .",
+    "set_env": "npm install --vs2015 -g windows-build-tools",
+    "mybuild": "./node_modules/.bin/electron-rebuild",
+    "pack_win": "./node_modules/.bin/electron-packager . --overwrite  --asar --out=release \"ZigbeeAPI_TestApp\" --platform=win32 --arch=x64",
+    "pack_mac": "./node_modules/.bin/electron-packager . --overwrite --asar --out=release NONAME --platform=darwin --arch=x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.3.0",
+    "electron-packager": "^15.2.0",
+    "electron-rebuild": "^2.3.5"
+  },
+  "dependencies": {
+    "serialport": "^9.0.7"
+  }
+}

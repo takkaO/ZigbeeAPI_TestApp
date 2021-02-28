@@ -1,0 +1,69 @@
+.test_title{
+	text-align: center;
+}
+
+.base-panel {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.com-select-panel {
+	/*background-color: azure;*/
+	width: 100%;
+	padding: 10px;
+}
+
+.main-panel {
+	background-color: antiquewhite;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	height: 100%;
+
+}
+
+.input-panel {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-panel > span {
+	text-align: center;
+	font-weight: bold;
+}
+
+.input-panel > textarea {
+	width: 100%;
+	resize: none;
+	height: 100%;
+	box-sizing: border-box; /* fit parent width */
+}
+
+.control-panel {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.control-panel > span {
+	text-align: center;
+	font-weight: bold;
+}
+
+.control-panel > textarea {
+	width: 100%;
+	resize: none;
+	height: 100%;
+	background-color: lightgrey;
+	box-sizing: border-box; /* fit parent width */
+}
+
+.control-panel > button {
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
