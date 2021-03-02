@@ -35,11 +35,11 @@
 						<textarea v-on:keydown="onTabKey($event)" v-model="tx_data"></textarea>
 					</div>
 					<div class="control-panel">
-						<span>送信ログ</span>
+						<button v-on:click="clearTxLog" type="button" class="btn btn-secondary">送信ログ　クリア</button>
 						<textarea id="txlogarea" readonly>{{tx_log_data}}</textarea>
-						<span>受信ログ</span>
+						<button v-on:click="clearRxLog" type="button" class="btn btn-secondary">受信ログ　クリア</button>
 						<textarea id="rxlogarea" readonly>{{rx_log_data}}</textarea>
-						<button v-on:click="requestTransmit" v-bind:disabled="!canTransmit" type="button" class="btn btn-primary">Transmit</button>
+						<button v-on:click="requestTransmit" v-bind:disabled="!canTransmit" type="button" class="btn btn-primary btn-transmit">Transmit</button>
 					</div>
 				</div>
 			</div>

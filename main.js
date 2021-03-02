@@ -91,9 +91,11 @@ ipcMain.handle("openComPort", async (event, comport) => {
 			let [result, packet, nextbuf] = checkRecvBuffer(buf);
 			if (result) {
 				// 返信
+				/*
 				console.log("Start ==========");
-				console.log(packet);
+				console.log(buf);
 				console.log("END ==========");
+				*/
 				mainWindow.webContents.send("onReceiveData", packet);
 				if (nextbuf === undefined) {
 					buf = Array();
@@ -190,7 +192,7 @@ function checkRecvBuffer(buffer) {
 		let tmpbuf = Array();
 		let nextbuf = Array();
 		for (let i=0; i<buffer.length; i++) {
-			if (i <= len) {
+			if (i < len) {
 				tmpbuf.push(buffer[i]);
 				continue;
 			}

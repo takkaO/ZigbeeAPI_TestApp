@@ -30,6 +30,9 @@ var app = new Vue({
 
 			txlog.scrollTop = txlog.scrollHeight;
 		},
+		clearTxLog: function() {
+			this.tx_log_data = "";
+		},
 		updateRxLog: function(log) {
 			let rxlog = document.getElementById("rxlogarea");
 			this.rx_log_data += log + "\n";
@@ -43,6 +46,9 @@ var app = new Vue({
 				this.rx_log_data = tmp.slice(len);
 			}
 			rxlog.scrollTop = rxlog.scrollHeight;
+		},
+		clearRxLog: function() {
+			this.rx_log_data = "";
 		},
 		openComPort: function() {
 			let comport = this.comports[this.selectedIndex].path;
